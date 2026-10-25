@@ -1,1 +1,419 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digitale Wartungsakte für den Mitsubishi Outlander 3 Active Plus Black Edition, Baujahr 2019.">
+  <title>Mitsubishi Outlander – Wartungsakte</title>
+
+  <style>
+    :root {
+      --red: #c62828;
+      --dark: #292929;
+      --text: #303030;
+      --muted: #707070;
+      --bg: #f4f5f6;
+      --card: #ffffff;
+      --border: #e5e5e5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #333333, #171717);
+      color: #ffffff;
+      padding: 34px 20px 28px;
+      text-align: center;
+      border-bottom: 5px solid var(--red);
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(25px, 5vw, 36px);
+      letter-spacing: 0.3px;
+    }
+
+    header p {
+      margin: 4px 0;
+      color: #eeeeee;
+    }
+
+    .container {
+      width: min(100% - 28px, 1000px);
+      margin: 25px auto 40px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.055);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      color: var(--red);
+      margin: 0 0 16px;
+      padding-bottom: 9px;
+      border-bottom: 2px solid #eeeeee;
+      font-size: 22px;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .vehicle-item {
+      padding: 12px 14px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      border-left: 3px solid var(--red);
+      overflow-wrap: anywhere;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+
+    .value {
+      font-weight: 600;
+    }
+
+    .timeline {
+      position: relative;
+      margin-left: 7px;
+      padding-left: 23px;
+      border-left: 2px solid #e1e1e1;
+    }
+
+    .entry {
+      position: relative;
+      margin-bottom: 24px;
+      padding: 0 0 0 5px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 5px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--red);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 1px var(--red);
+    }
+
+    .date {
+      color: var(--red);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .description {
+      margin: 5px 0;
+    }
+
+    .details {
+      color: #555555;
+      font-size: 14px;
+      margin: 7px 0 0;
+    }
+
+    .price {
+      display: inline-block;
+      margin-top: 8px;
+      background: #fbeaea;
+      color: #a51e1e;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: #f8f8f8;
+      padding: 17px;
+      border-radius: 9px;
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 25px;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .note {
+      border-left: 4px solid var(--red);
+      padding: 12px 15px;
+      background: #fafafa;
+      border-radius: 0 7px 7px 0;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 0 15px 28px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 17px;
+      }
+
+      .container {
+        width: min(100% - 20px, 1000px);
+        margin-top: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mitsubishi Outlander</h1>
+    <p>Digitale Wartungsakte</p>
+    <p>Outlander 3 Active Plus Black Edition · 2.0 MIVEC · 2WD · CVT · 7-Sitzer</p>
+    <p>Stand: 24.10.2026 · 45.735 km</p>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h2>Fahrzeugdaten</h2>
+      <div class="vehicle-grid">
+        <div class="vehicle-item">
+          <span class="label">Modell</span>
+          <span class="value">Mitsubishi Outlander 3 Active Plus Black Edition</span>
+        </div>
+        <div class="vehicle-item">
+          <span class="label">Erstzulassung</span>
+          <span class="value">28.06.2019</span>
+        </div>
+        <div class="vehicle-item">
+          <span class="label">Motor</span>
+          <span class="value">2.0 MIVEC Benzin</span>
+        </div>
+        <div class="vehicle-item">
+          <span class="label">Antrieb / Getriebe</span>
+          <span class="value">2WD · CVT-Automatik</span>
+        </div>
+        <div class="vehicle-item">
+          <span class="label">Sitzplätze</span>
+          <span class="value">7</span>
+        </div>
+        <div class="vehicle-item">
+          <span class="label">Farbe</span>
+          <span class="value">Perlmutt Weiß</span>
+        </div>
+        <div class="vehicle-item">
+          <span class="label">Kilometerstand</span>
+          <span class="value">45.735 km (24.10.2026)</span>
+        </div>
+        <div class="vehicle-item">
+          <span class="label">Fahrgestellnummer (FIN)</span>
+          <span class="value">JMBXTGF7WKJ002075</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Wartungshistorie</h2>
+
+      <div class="timeline">
+
+        <article class="entry">
+          <div class="date">07.2020 · 8.772 km</div>
+          <h3>Inspektion und Ölwechsel</h3>
+          <p class="description">Wartung des Fahrzeugs und Motorölwechsel.</p>
+          <span class="price">296,31 €</span>
+        </article>
+
+        <article class="entry">
+          <div class="date">26.07.2021 · 14.641 km</div>
+          <h3>Inspektion und Ölwechsel</h3>
+          <p class="description">Reguläre Wartung mit Motoröl- und Filterwechsel.</p>
+          <p class="details">
+            Motoröl: Shell Helix HX7 5W-40, ca. 4,4 l.<br>
+            Ölfilter und Innenraumfilter erneuert.<br>
+            Batteriespannung geprüft: 12,36 V; Nachladen vermerkt.
+          </p>
+          <span class="price">438,87 €</span>
+        </article>
+
+        <article class="entry">
+          <div class="date">15.08.2022 · 21.047 km</div>
+          <h3>Inspektion und Ölwechsel</h3>
+          <p class="description">Reguläre Wartung mit Motoröl- und Filterwechsel.</p>
+          <p class="details">
+            Motoröl: Shell Helix HX7 5W-40, ca. 4,4 l.<br>
+            Ölfilter und Innenraumfilter erneuert.<br>
+            Batteriespannung geprüft: 12,51 V.
+          </p>
+          <span class="price">360,74 €</span>
+        </article>
+
+        <article class="entry">
+          <div class="date">05.07.2023 · 27.738 km</div>
+          <h3>Wartung, Ölwechsel und Bremsflüssigkeit</h3>
+          <p class="description">Inspektion mit Motoröl-, Filter- und Bremsflüssigkeitswechsel.</p>
+          <p class="details">
+            Motoröl: Shell Helix HX7 5W-40, ca. 4,3 l.<br>
+            Ölfilter und Innenraumfilter erneuert.
+          </p>
+          <span class="price">429,76 €</span>
+        </article>
+
+        <article class="entry">
+          <div class="date">2024 · 34.496 km</div>
+          <h3>Inspektion und Ölwechsel</h3>
+          <p class="description">Reguläre Wartung mit Motoröl- und Filterwechsel.</p>
+          <p class="details">Motoröl: Shell Helix HX7 5W-40.</p>
+          <span class="price">504,90 €</span>
+        </article>
+
+        <article class="entry">
+          <div class="date">07.2025 · 39.600 km</div>
+          <h3>Inspektion, Ölservice und Bremsbeläge</h3>
+          <p class="description">
+            Inspektion und Ölservice sowie Erneuerung der Bremsbeläge an beiden Achsen.
+          </p>
+          <p class="details">
+            Motoröl: Motul 5W-30.<br>
+            Kosten: 125,00 € für Inspektion und Ölservice sowie 298,00 € für Bremsbeläge.
+          </p>
+          <span class="price">423,00 € gesamt</span>
+        </article>
+
+        <article class="entry">
+          <div class="date">10.08.2026 · ca. 44.000 km</div>
+          <h3>Inspektion, Ölservice und neue Sommerreifen</h3>
+          <p class="description">
+            Vier neue Bridgestone Turanza 6 Sommerreifen montiert.
+            Inspektion mit Ölwechsel sowie Wechsel von Ölfilter und Luftfilter.
+          </p>
+          <p class="details">
+            Motoröl: Motul 5W-30.<br>
+            Reifen: Bridgestone Turanza 6.
+          </p>
+          <span class="price">540,00 € gesamt</span>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Reifen und Bremsen</h2>
+
+      <div class="timeline">
+        <article class="entry">
+          <div class="date">10.08.2026 · ca. 44.000 km</div>
+          <h3>Sommerreifen erneuert</h3>
+          <p class="description">
+            Vier Bridgestone Turanza 6 Sommerreifen.
+          </p>
+          <p class="details">Reifengröße: 225/55 R18.</p>
+        </article>
+
+        <article class="entry">
+          <div class="date">07.2025 · 39.600 km</div>
+          <h3>Bremsbeläge an beiden Achsen</h3>
+          <p class="description">
+            Erneuerung der Bremsbeläge vorne und hinten im Rahmen des Werkstattbesuchs.
+          </p>
+          <p class="details">Kosten für die Bremsbeläge: 298,00 €.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Kostenübersicht</h2>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number">2.993,58 €</span>
+          <span class="stat-label">Gesamtkosten der aufgeführten Wartungen</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Dokumentierte Wartungseinträge</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">45.735 km</span>
+          <span class="stat-label">Aktueller Kilometerstand am 24.10.2026</span>
+        </div>
+      </div>
+      <p class="details">
+        Die Gesamtsumme basiert auf den sieben aufgeführten Werkstattrechnungen
+        beziehungsweise Wartungseinträgen. Sie enthält keine separat berechneten
+        Kosten für Motoröl, sofern diese bereits in einem Wartungspreis enthalten sind.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Hinweis zur Dokumentation</h2>
+      <div class="note">
+        Diese Wartungsakte fasst die vom Fahrzeughalter angegebenen Wartungen,
+        Kilometerstände und Kosten zusammen. Sie ersetzt keine Originalrechnungen
+        oder das offizielle Serviceheft. Die Angaben sollten anhand der Rechnungen
+        überprüft und bei Bedarf ergänzt werden.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Mitsubishi Outlander 3 · Persönliche digitale Wartungsakte · Stand 24.10.2026
+  </footer>
+</body>
+</html>
+
+Ich möchte das 
